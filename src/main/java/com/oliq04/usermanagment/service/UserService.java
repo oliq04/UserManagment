@@ -20,8 +20,17 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
-    public User modifyUser(Long id, User user) {
-        return userRepository.modifyById(id, user);
+    public User modifyUser(Long id, User newInfo) {
+        User user = getUser(id);
+
+        user.setId(id);
+        user.setPassword(newInfo.getPassword());
+        user.setEmail(newInfo.getEmail());
+        user.setFirstName(newInfo.getFirstName());
+        user.setLastName(newInfo.getLastName());
+        user.setDateOfRegistration(newInfo.getDateOfRegistration());
+
+        return user;
     }
 
     public User createUser(User newUser) {

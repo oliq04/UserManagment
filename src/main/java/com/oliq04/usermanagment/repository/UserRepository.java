@@ -40,17 +40,4 @@ public class UserRepository {
         userCounter++;
         return newUser;
     }
-
-    public User modifyById(Long id, User newInfo) {
-        User user = findById(id).orElseThrow(IllegalArgumentException::new);
-
-        user.setId(id);
-        user.setPassword(newInfo.getPassword());
-        user.setEmail(newInfo.getEmail());
-        user.setFirstName(newInfo.getFirstName());
-        user.setLastName(newInfo.getLastName());
-        user.setDateOfRegistration(newInfo.getDateOfRegistration());
-
-        return user;
-    }
 }
