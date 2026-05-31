@@ -26,12 +26,12 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public User modifyUser(@PathVariable Long id, User command) {
+    public User modifyUser(@PathVariable Long id, @RequestBody User command) {
         return userService.modifyUser(id, command);
     }
 
     @PostMapping
-    public User createUser(User command) {
+    public User createUser(@RequestBody User command) {
         return userService.createUser(command);
     }
 

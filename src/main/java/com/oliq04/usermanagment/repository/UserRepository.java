@@ -44,7 +44,7 @@ public class UserRepository {
     public User modifyById(Long id, User newInfo) {
         User user = findById(id).orElseThrow(IllegalArgumentException::new);
 
-        user.setId(newInfo.getId());
+        user.setId(id);
         user.setPassword(newInfo.getPassword());
         user.setEmail(newInfo.getEmail());
         user.setFirstName(newInfo.getFirstName());
